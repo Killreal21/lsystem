@@ -3,15 +3,10 @@ import turtle
 axiom = "0"
 tempAx=""
 
-n=len(axiom)
-for i in range(1):
-    for i in range(n):
-        if (axiom[i]=="1"):
-            tempAx=tempAx+"11"
-        elif (axiom[i]=="0"):
-            tempAx=tempAx+"1[0]0"
-        else:
-            tempAx = tempAx + ""
+translate={"1":"11" ,"0":"1[0]0"}
+for i in range(3):
+    for ch in axiom:
+        tempAx=tempAx+translate[ch]
 axiom=axiom+tempAx
 tempAx= ""
 print(axiom)
@@ -22,15 +17,14 @@ turtle.penup()
 turtle.pendown()
 turtle.pensize(2)
 
-n=len(axiom)
-for i in range(n):
-    if (axiom[i]=="1"):
+for ch in axiom:
+    if (ch=="1"):
         turtle.forward(15)
-    elif (axiom[i]=="0"):
+    elif (ch=="0"):
         turtle.forward(15)
-    elif (axiom[i]=="["):
+    elif (ch=="["):
         turtle.left(45)
-    elif (axiom[i]=="]"):
+    elif (ch=="]"):
         turtle.back(15)
         turtle.right(90)
 turtle.update()
